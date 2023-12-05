@@ -91,8 +91,19 @@ const addFeedback = async (request) => {
 	})
 }
 
+const getAllFeedbacks = async (request) => {
+	const { role } = request;
+
+	if (role !== 'admin') {
+		throw new CustomErorr(403, 'Anda Tidak Boleh Mengakses Endpoint Ini')
+	}
+
+	return prismaClient.feedback.findMany();
+}
+
 export default {
 	register,
 	login,
-	addFeedback
+	addFeedback,
+	getAllFeedbacks
 }

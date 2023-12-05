@@ -39,4 +39,18 @@ const addFeedback = async (req, res, next) => {
 		next(e)
 	}
 }
-export default {register, login, addFeedback}
+
+const getAllFeedbacks = async (req, res, next) => {
+	try{
+		const result = await userService.getAllFeedbacks(req.user);
+		res.status(200).json({
+			status: 'success',
+			message: 'Data Berhasail DiDapatkan',
+			data: result
+		});
+	} catch (e) {
+		next(e);
+	}
+}
+
+export default {register, login, addFeedback, getAllFeedbacks}
