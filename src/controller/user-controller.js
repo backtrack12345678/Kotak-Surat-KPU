@@ -19,7 +19,10 @@ const login = async (req, res, next) => {
 		res.status(200).json({
 			status: 'success',
 			message: 'Login Berhasil',
-			accessToken : result
+			data: {
+				role: result.role,
+				accessToken : result.accessToken
+			}
 		})
 	} catch (e) {
 		next(e)

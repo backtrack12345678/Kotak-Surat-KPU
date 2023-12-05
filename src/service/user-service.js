@@ -42,7 +42,8 @@ const login = async (request) => {
 		},
 		select: {
 			id: true,
-			password: true
+			password: true,
+			role: true,
 		}
 	})
 
@@ -61,7 +62,7 @@ const login = async (request) => {
 		email: loginRequest.email
 	}, process.env.JWT_ACCESS_TOKEN_SECRET, {expiresIn: '30d'})
 
-	return accessToken;
+	return {accessToken, role: user.role};
 }
 
 const addFeedback = async (request) => {
