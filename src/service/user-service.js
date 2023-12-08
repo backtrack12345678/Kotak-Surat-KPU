@@ -42,6 +42,7 @@ const login = async (request) => {
 		},
 		select: {
 			id: true,
+			email: true,
 			password: true,
 			role: true,
 		}
@@ -59,7 +60,7 @@ const login = async (request) => {
 
 	const accessToken = jwt.sign({
 		id: user.id,
-		email: loginRequest.email
+		email: user.email
 	}, process.env.JWT_ACCESS_TOKEN_SECRET, {expiresIn: '30d'})
 
 	return {accessToken, role: user.role};
