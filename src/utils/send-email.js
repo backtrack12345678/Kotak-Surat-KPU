@@ -6,7 +6,7 @@ export const sendEmail = async (data) => {
 		port: 465,
 		secure: true,
 		auth: {
-			user: process.env.EMAIL || "kotaksuratkpu@gmail.com",
+			user: "kotaksuratkpu@gmail.com",
 			pass: "sizr fipx ixuz kqkq"
 		}
 	});
@@ -24,7 +24,7 @@ export const sendEmail = async (data) => {
 
 	const mailOptions = {
 		from: "kotaksuratkpu@gmail.com",
-		to: 'semvakbaulu@gmail.com',
+		to: 'salsabowo08@gmail.com',
 		subject: "Kotak Saran KPU",
 		text: messageTemplate
 	}
