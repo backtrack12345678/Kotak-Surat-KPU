@@ -11,7 +11,7 @@ const register = async (request) => {
 
 	const countUser = await prismaClient.user.count({
 		where: {
-			email: registerRequest.email
+			email: registerRequest.email.toLowerCase()
 		}
 	});
 
@@ -23,7 +23,7 @@ const register = async (request) => {
 
 	return prismaClient.user.create({
 		data: {
-			email: registerRequest.email,
+			email: registerRequest.email.toLowerCase(),
 			password: hashedPassword
 		},
 		select: {
@@ -38,7 +38,7 @@ const login = async (request) => {
 
 	const user = await prismaClient.user.findUnique({
 		where: {
-			email: loginRequest.email
+			email: loginRequest.email.toLowerCase()
 		},
 		select: {
 			id: true,

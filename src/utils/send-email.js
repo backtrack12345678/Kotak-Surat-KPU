@@ -6,7 +6,7 @@ export const sendEmail = async (data) => {
 		port: 465,
 		secure: true,
 		auth: {
-			user: "kotaksuratkpu@gmail.com",
+			user: process.env.EMAIL || "kotaksuratkpu@gmail.com",
 			pass: "sizr fipx ixuz kqkq"
 		}
 	});
